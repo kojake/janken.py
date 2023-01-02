@@ -70,12 +70,12 @@ def start():
     if aite_te == 1:
         your_te_label["text"] = "相手の手\nグー"
         your_te = 1
-        with open("gameyour_te.json", "w", encoding="utf-8") as file:
+        with open("your_te.json", "w", encoding="utf-8") as file:
             json.dump(your_te, file)
     if aite_te == 2:
         your_te_label["text"] = "相手の手\nチョキ"
         your_te = 2
-        with open("game/your_te.json", "w", encoding="utf-8") as file:
+        with open("your_te.json", "w", encoding="utf-8") as file:
             json.dump(your_te, file)
     if aite_te == 3:
         your_te_label["text"] = "相手の手\nパー"
