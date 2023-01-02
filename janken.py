@@ -11,9 +11,9 @@ canvas = tkinter.Canvas(bg = "sky blue", width=300, height=480)
 canvas.place(x=0, y=0)
 
 #画像を読み込む
-pa_img = tkinter.PhotoImage(file = "game/img/pa.png")
-gu_img = tkinter.PhotoImage(file = "game/img/gu.png")
-tyoki_img = tkinter.PhotoImage(file = "game/img/tyoki.png")
+pa_img = tkinter.PhotoImage(file = "img/pa.png")
+gu_img = tkinter.PhotoImage(file = "img/gu.png")
+tyoki_img = tkinter.PhotoImage(file = "img/tyoki.png")
 
 top_label = tkinter.Label(text = "じゃんけん", bg = "sky blue", fg = "black", font = ("メイリオ",20,"bold"))
 top_label.place(x=100, y=40)
@@ -50,7 +50,7 @@ def start():
     win_or_lose_label2.place(x=110, y=400)
 
     #自分の手を表示する
-    with open("game/my_te.json", "r", encoding="utf-8") as file:
+    with open("my_te.json", "r", encoding="utf-8") as file:
         my_te = json.load(file)
 
     if my_te == 1:
@@ -80,15 +80,15 @@ def start():
     if aite_te == 3:
         your_te_label["text"] = "相手の手\nパー"
         your_te = 3
-        with open("game/your_te.json", "w", encoding="utf-8") as file:
+        with open("your_te.json", "w", encoding="utf-8") as file:
             json.dump(your_te, file)
     time.sleep(2)
     window.update()
 
     #勝敗
-    with open("game/my_te.json", "r", encoding="utf-8") as file:
+    with open("my_te.json", "r", encoding="utf-8") as file:
         my_te = json.load(file)
-    with open("game/your_te.json", "r", encoding="utf-8") as file:
+    with open("your_te.json", "r", encoding="utf-8") as file:
         your_te = json.load(file)
 
     time.sleep(2)
@@ -105,16 +105,16 @@ def start():
         win_or_lose_label2["fg"] = "blue"
 
 def gu_te():
-    with open("game/my_te.json", "r", encoding="utf-8") as file:
+    with open("my_te.json", "r", encoding="utf-8") as file:
         my_te = json.load(file)
     my_te = 1
-    with open("game/my_te.json", "w", encoding="utf-8") as file:
+    with open("my_te.json", "w", encoding="utf-8") as file:
         json.dump(my_te, file)
     start()
 gu_button["command"] = gu_te
 
 def tyoki_te():
-    with open("game/my_te.json", "r", encoding="utf-8") as file:
+    with open("my_te.json", "r", encoding="utf-8") as file:
         my_te = json.load(file)
     my_te = 2
     with open("game/my_te.json", "w", encoding="utf-8") as file:
@@ -123,10 +123,10 @@ def tyoki_te():
 tyoki_button["command"] = tyoki_te
 
 def pa_te():
-    with open("game/my_te.json", "r", encoding="utf-8") as file:
+    with open("my_te.json", "r", encoding="utf-8") as file:
         my_te = json.load(file)
     my_te = 3
-    with open("game/my_te.json", "w", encoding="utf-8") as file:
+    with open("my_te.json", "w", encoding="utf-8") as file:
         json.dump(my_te, file)
     start()
 pa_button["command"] = pa_te
