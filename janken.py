@@ -117,7 +117,7 @@ def tyoki_te():
     with open("my_te.json", "r", encoding="utf-8") as file:
         my_te = json.load(file)
     my_te = 2
-    with open("game/my_te.json", "w", encoding="utf-8") as file:
+    with open("my_te.json", "w", encoding="utf-8") as file:
         json.dump(my_te, file)
     start()
 tyoki_button["command"] = tyoki_te
